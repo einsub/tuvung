@@ -15,12 +15,7 @@ export default class Status extends Component<Props> {
   props: Props;
 
   render() {
-    const {
-      keyword,
-      currentPage,
-      totalPages,
-      totalWords
-    } = this.props;
+    const { keyword, currentPage, totalPages, totalWords } = this.props;
     return (
       <div className={styles.container} data-tid="container">
         <span>{keyword}</span>

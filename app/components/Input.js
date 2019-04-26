@@ -1,20 +1,42 @@
 // @flow
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import routes from '../constants/routes';
+import React, { useState, useRef } from 'react';
 import styles from './Input.css';
+import { useOuterClickNotifier } from '../utils/hooks';
 
-type Props = {
-};
+type Props = {};
 
-export default class Input extends Component<Props> {
-  props: Props;
+function Input() {
+  const innerRef = useRef(null);
+  const [isInputMode, toggleInputMode] = useState(false);
 
-  render() {
-    return (
-      <div className={styles.container} data-tid="container">
-        Input
-      </div>
-    );
-  }
+  function onClickPlus() {
+    toggleInputMode(true)
+  };
+
+  useOuterClickNotifier(
+    e => {
+      toggleInputMode(false)
+    },
+    innerRef
+  )
+
+  const plusButton = (
+    <button type="button" onClick={onClickPlus}>
+      +
+    </button>
+  );
+
+  const inputField = (
+    <div ref={innerRef}>
+      <input type="text" />
+    </div>
+  );
+
+  return (
+    <div className={styles.container} data-tid="container">
+      {isInputMode ? inputField : plusButton}
+    </div>
+  );
 }
+
+export default Input

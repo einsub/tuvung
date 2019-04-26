@@ -13,8 +13,16 @@ export default class WordTable extends Component<Props> {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-        <WordRow word='alphabetA' meaning='means' soundUrl='https://www.google.com/' />
-        <WordRow word='alphabetB' meaning='means' soundUrl='https://www.google.com/' />
+        <WordRow
+          word="alphabetA"
+          meaning="means"
+          soundUrl="https://www.google.com/"
+        />
+        <WordRow
+          word="alphabetB"
+          meaning="means"
+          soundUrl="https://www.google.com/"
+        />
         <WordRow word='alphabetC' meaning='means' soundUrl='https://www.google.com/' />
         <WordRow word='alphabetD' meaning='means' soundUrl='https://www.google.com/' />
       </div>
